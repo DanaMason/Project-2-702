@@ -8,24 +8,57 @@
 
 # Import database and libraries
 import numpy as np
+from numpy.linalg import norm   # cosine similarity
+
+# Cosine similarity function
+# Thank you "https://www.geeksforgeeks.org/python/how-to-calculate-cosine-similarity-in-python/"
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (norm(a) * norm(b))
 
 # Read in database as numpy vectors
 
-vectors =  np.loadtxt('sample_vectors.txt', dtype='str')
-print(vectors)
+# Each array place is a different word's vector
+# with its corresponding values for each dimension.
 
+vectors =  np.loadtxt('sample_vectors.txt', dtype='str', comments=None)
 
-# Create vector array for each word
+word_labels = vectors[:, 0]  # seperate word labels from remainder of vectors
+numeric_vectors = vectors[:, 1:].astype(float)
 
-        # Man = np.array([1.0, 0.0, 0.0], dtype='str').astype(np.float32)
-        # King = np.array([1.0, 1.0, 0.0], dtype='str').astype(np.float32)
+# Troubleshooting :/
 
-        # Woman = np.array([0.0, 0.0, 1.0], dtype='str').astype(np.float32)
-        # Queen= np.array[(np.array(King - Man))]
-
-        # print(Queen)
+# print(vectors)            # All data
+# print(word_labels)        # Labels (words)
+# print(numeric_vectors)    # The good stuff :D
 
 # measure properties (differences between words)
+
+            # # Example
+
+            # x = 0
+            # y = 3
+
+            # print(f'\n\nMeasuring the difference between Word {x} and Word {y}. These are "{word_labels[x]}" and "{word_labels[y]}".\n\n')
+
+            # # Measure cosine similarity between numeric vectors of 1st and 4th words.
+            # temp_sim = cosine_similarity(numeric_vectors[x], numeric_vectors[y])   
+
+            # print(f'\nDifference between the two words is approximately... {temp_sim}.')
+            # print('\nUpon manual analysis, this is a good representation as the vectors are truly similar.')
+            # print('\nNow, lets find two dissimilar words.\n\n')
+
+            # x = 0
+            # y = 6833
+
+            # print(f'\n\nMeasuring the difference between Word {x} and Word {y}. These are "{word_labels[x]}" and "{word_labels[y]}".\n\n')
+
+            # # Measure cosine similarity between numeric vectors of 1st and 6833rd words.
+            # temp_sim = cosine_similarity(numeric_vectors[x], numeric_vectors[y])   
+
+            # print(f'\nDifference between the two words is approximately... {temp_sim}.')
+            # print('\nUpon manual analysis, this is a good representation as the vectors are much less similar.')
+
 
 # Find differences between words with cosine similarity (this is property_X)
 
