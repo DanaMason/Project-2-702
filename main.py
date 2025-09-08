@@ -7,25 +7,23 @@
 
 
 # Import database and libraries
-# import sample_vecetors
 import numpy as np
 
-# with open('sample_vectors.txt', 'r') as file:
-#         vectors = file.read()
-#         print(vectors)
-
 # Read in database as numpy vectors
-# vectors = np.loadtxt('sample_vecetors.txt', dtype='str').astype(np.float32)
+
+vectors =  np.loadtxt('sample_vectors.txt', dtype='str')
+print(vectors)
+
 
 # Create vector array for each word
 
-Man = np.array([1.0, 0.0, 0.0], dtype='str').astype(np.float32)
-King = np.array([1.0, 1.0, 0.0], dtype='str').astype(np.float32)
+        # Man = np.array([1.0, 0.0, 0.0], dtype='str').astype(np.float32)
+        # King = np.array([1.0, 1.0, 0.0], dtype='str').astype(np.float32)
 
-Woman = np.array([0.0, 0.0, 1.0], dtype='str').astype(np.float32)
-Queen= np.array[(np.array(King - Man))]
+        # Woman = np.array([0.0, 0.0, 1.0], dtype='str').astype(np.float32)
+        # Queen= np.array[(np.array(King - Man))]
 
-print(Queen)
+        # print(Queen)
 
 # measure properties (differences between words)
 
