@@ -62,7 +62,14 @@ numeric_vectors = vectors[:, 1:].astype(float)
 
 # Find differences between words with cosine similarity (this is property_X)
 
+x = 933
+y = 932
+cosine_similarity(numeric_vectors[x], numeric_vectors[y])  # shows difference between words x and y.
+print(f"\n\nThe difference between '{word_labels[x]}' and '{word_labels[y]}' is approximately {cosine_similarity(numeric_vectors[x], numeric_vectors[y])}.\n\n")
 
+# Take the property that is the difference from this similarity search and apply it to other words.
 
-# Find most similar word to property_X
+x = 933
+y = 932
 
+temp_property = cosine_similarity(numeric_vectors[x], numeric_vectors[y])  # shows difference between words x and y.
